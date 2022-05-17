@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nestjs-backend
+spec:
+  selector:
+    matchLabels:
+      app: nestjs-backend
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: nestjs-backend
+    spec:
+      containers:
+        - name: nestjs-k8s
+          image: dilanbrandix/nestjs-backend
+          ports:
+            - containerPort: 3000
